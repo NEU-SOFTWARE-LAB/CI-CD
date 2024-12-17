@@ -1,12 +1,11 @@
 name: Build and Test C++ on RISC-V
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_call:  # 使用 workflow_call 事件，允许其他仓库调用此工作流
+    inputs:
+      example-input:
+        required: false
+        type: string
 
 jobs:
   build:
